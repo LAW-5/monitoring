@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  loki:
+    image: grafana/loki:2.5.0
+    volumes:
+      - ./loki:/etc/loki
+    ports:
+      - 3100:3100
+    restart: unless-stopped
+    command: -config.file /etc/loki/loki-config.yml
+  grafana:
+    image: grafana/grafana:latest
+    user: "502"
+    volumes:
+      - ./grafana:/var/lib/grafana
+    ports:
+      - 3200:3000
+    restart: unless-stopped
