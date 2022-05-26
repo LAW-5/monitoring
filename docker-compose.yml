@@ -10,7 +10,7 @@ services:
     command: -config.file /etc/loki/loki-config.yml
   grafana:
     image: grafana/grafana:latest
-    user: "502"
+    user: "0"
     volumes:
       - ./grafana:/var/lib/grafana
     ports:
